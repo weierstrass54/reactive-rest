@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+group 'com.github.weierstrass54'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-webflux',
+        'org.springframework.boot:spring-boot-starter-security',
+        'ch.qos.logback:logback-classic:1.2.11',
+        'org.hibernate:hibernate-validator:7.0.4.Final',
+        'com.auth0:java-jwt:3.19.2',
+        'io.springfox:springfox-boot-starter:3.0.0'
+
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test',
+        'io.projectreactor:reactor-test',
+        'org.testng:testng:7.5'
+}
+
+springBoot {
+    buildInfo()
+}
+
+bootJar {
+    enabled = true
+}
+
+jar {
+    enabled = true
+}
